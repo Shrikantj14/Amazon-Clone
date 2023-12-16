@@ -6,7 +6,7 @@
     <title>Amazon Clone</title>
     <link rel="stylesheet" href="style.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css" integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
-
+    
 </head>
 <body>
     <header>
@@ -194,5 +194,55 @@
 
     
     </footer>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            // Function to toggle the panel when the "All" button is clicked
+            const panelAll = document.querySelector(".panel-all");
+            const panelOps = document.querySelector(".panel-ops");
+            panelAll.addEventListener("click", function () {
+              panelOps.classList.toggle("show-panel-ops");
+            });
+          
+            // Function to close the panel when clicking outside of it
+            document.addEventListener("click", function (event) {
+              if (!panelOps.contains(event.target) && !panelAll.contains(event.target)) {
+                panelOps.classList.remove("show-panel-ops");
+              }
+            });
+          
+            // Function to add an item to the cart when the cart icon is clicked
+            const cartIcon = document.querySelector(".nav-cart");
+            cartIcon.addEventListener("click", function () {
+              // You can implement cart functionality here, e.g., open a cart modal
+              alert("Item added to cart!");
+            });
+          
+            // Function to handle the search input
+            const searchInput = document.querySelector(".search-input");
+            const searchIcon = document.querySelector(".search-icon");
+            searchIcon.addEventListener("click", function () {
+              const searchTerm = searchInput.value.trim();
+              if (searchTerm !== "") {
+                // You can implement search functionality here, e.g., redirect to search results
+                alert("Searching for: " + searchTerm);
+              }
+            });
+          
+            // Function to scroll back to the top of the page
+            const backToTop = document.querySelector(".foot-panel1");
+            backToTop.addEventListener("click", function () {
+              window.scrollTo({ top: 0, behavior: "smooth" });
+            });
+          
+            // Function to handle clicking on footer links
+            const footerLinks = document.querySelectorAll(".foot-panel2 a");
+            footerLinks.forEach(function (link) {
+              link.addEventListener("click", function () {
+                // You can implement functionality for footer links here
+                alert("You clicked on: " + link.textContent);
+              });
+            });
+          });
+    </script>
 </body>
 </html>
